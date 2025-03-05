@@ -1,0 +1,51 @@
+@page {
+    size: 14cm 5cm; /* Definir tamaño del ticket en horizontal */
+    margin: 0; /* Sin márgenes */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Telegraf', sans-serif;
+}
+.ticket-container {
+    width: 5cm; /* Ancho total del ticket */
+    height: 14cm; /* Alto total del ticket */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    page-break-inside: avoid;
+}
+.ticket {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 100%; /* Ocupa todo el alto del ticket */
+    background-image: url('data:image/png;base64,{{ $imagen }}');; /* Fondo del ticket */
+    background-size: cover; /* La imagen ocupa todo el fondo */
+    background-repeat: no-repeat; /* Sin repetición */
+    background-position: center; /* Centrar la imagen */
+    transform: rotate(180deg); /* Gira el contenido 180 grados */
+    transform-origin: center; /* Punto de rotación en el centro */
+    page-break-inside: avoid;
+}
+.bloque-inicial, .bloque-central, .bloque-final {
+    text-align: center;
+    padding: 0.1cm;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+.bloque-inicial {
+    height: 2.5cm;
+    width: 100%;
+    box-sizing: border-box;
+    writing-mode:vertical-lr;
+}
+.bloque-central {
+    height: 9cm;
+    box-sizing: border-box;
+    font-size: 14px; /* Texto más grande en el bloque principal */
+}
+.bloque-final {
+    height: 2.5cm;
+    width: 100%;
+    box-sizing: border-box;
+    writing-mode:vertical-rl;
+}

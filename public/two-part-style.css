@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imprimir Tickets Térmicos</title>
-    <style>
+
     @page {
         size: 6.3cm 15.3cm; /* Tamaño del ticket */
         margin: 0; /* Sin márgenes */
@@ -55,27 +49,3 @@
         font-size: 13px;
         font-weight: bold
     }
-</style>
-</head>
-<body>
-    <div id="ticket-container">
-        @foreach ($tickets as $ticket)
-            <div class="ticket">
-                <!-- Bloque del Codo -->
-                <div class="codo">
-                    <p>No. {{sprintf('%04d', $ticket)}}</p>
-                </div>
-                <!-- Bloque del Cuerpo -->
-                <div class="cuerpo">
-                    <p>No. {{sprintf('%04d', $ticket)}}</p>
-                </div>
-            </div>
-        @endforeach
-    </div>
-    <script>
-        window.onload = function() {
-            window.print();
-        };
-    </script>
-</body>
-</html>

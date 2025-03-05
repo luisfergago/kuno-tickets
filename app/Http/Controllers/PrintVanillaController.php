@@ -17,8 +17,11 @@ class PrintVanillaController extends Controller
 
         $tickets = range($request->first, $request->last);
         $file = $request->file('imagen');
-        $imagen = base64_encode(file_get_contents($file->path()));
+        $imagen = NULL;
+        if ($file) {
+            $imagen = base64_encode(file_get_contents($file->path()));
+        }
 
-        return view('vanilla.tickets', compact('tickets', 'imagen'));
+        return view('vanilla.tickets-'.$request->type, compact('tickets', 'imagen'));
     }
 }
